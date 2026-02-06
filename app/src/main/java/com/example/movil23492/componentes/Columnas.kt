@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Text
+import androidx.compose.material3.VerticalDivider
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -58,6 +59,7 @@ fun Separadores(){
         Text("este es un mensaje",modifier= Modifier.fillMaxSize().weight(weight = .2f))
         Text("de emergencia",modifier= Modifier.fillMaxSize().weight(weight = .4f))
         HorizontalDivider(thickness = 20.dp, color = Color.Yellow)
+        //VerticalDivider(thickness = 20.dp, color = Color.Black)
         Text("requerimos de tu ayuda para",modifier= Modifier.fillMaxSize().weight(weight = .2f))
         Text("reslipushnsdls..........................",modifier= Modifier.fillMaxSize().weight(weight = 1f))
         Text(text = "Holaaa    BuuuuEEEEnooooooss DIAS",
