@@ -47,9 +47,9 @@ fun CajasTexto(){
     Column(
         modifier= Modifier.fillMaxSize().padding(16.dp), verticalArrangement = Arrangement.Center) {
         Row(modifier= Modifier.fillMaxWidth()) {
-            NumberTextFill(modificador= Modifier.fillMaxWidth().weight(2f))
+           // NumberTextFill(modificador= Modifier.fillMaxWidth().weight(2f), valu)
             Spacer(modifier = Modifier.fillMaxWidth().weight(1f))
-            NumberTextFill(modificador= Modifier.fillMaxWidth().weight(2f))
+            //NumberTextFill(modificador= Modifier.fillMaxWidth().weight(2f))
 
             Column(modifier= Modifier.fillMaxWidth().weight(2f)) {
                 Text("Ingresa un numero")
