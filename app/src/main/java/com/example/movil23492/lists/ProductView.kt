@@ -28,13 +28,12 @@ import com.example.movil23492.R
 @Composable
 
 fun ProductPreview(){
-    ProductView(imagen=R.drawable.sanic, nombreProducto = "Sonic", calificacion = 0.5f, precio = 15022, entrega = "domingo")
+    val computadora= ProductModel(imagen=R.drawable.sanic, nombre = "Sonic", calif = 0.5f, precio = 15022, entrega = "domingo")
+    ProductView(computadora)
 }
 
 @Composable
-fun ProductView(
-    imagen: Int,nombreProducto: String,calificacion: Float,precio:Int,entrega: String
-){
+fun ProductView( product: ProductModel){
     //var imagen : Int= R.drawable.sanic
     //var nombreProducto: String="sonic"
     //var calificacion: Float=0.5f
@@ -44,16 +43,16 @@ fun ProductView(
     Card(modifier = Modifier.fillMaxWidth().padding(10.dp), colors = CardDefaults.cardColors(containerColor = Color.White)) {
         Column(modifier = Modifier.fillMaxWidth()) {
             Row() {
-                Image(painter = painterResource(imagen),
+                Image(painter = painterResource(product.imagen),
                     contentDescription = "imagen de producto",
                     modifier = Modifier.size(120.dp).align(Alignment.CenterVertically)
                 )
                 Column(modifier = Modifier.padding(5.dp)) {
                     Spacer(modifier = Modifier.size(10.dp))
-                    Text(nombreProducto, fontSize = 20.sp)
-                    Text(text="$calificacion estrellas", fontSize = 17.sp)
-                    Text(text="$ $precio", fontSize = 14.sp, fontWeight = FontWeight.Bold)
-                    Text("Llega el $entrega")
+                    Text(product.nombre, fontSize = 20.sp)
+                    Text(text="${product.calif} estrellas", fontSize = 17.sp)
+                    Text(text="$ ${product.precio}", fontSize = 14.sp, fontWeight = FontWeight.Bold)
+                    Text("Llega el ${product.entrega}")
                     Spacer(modifier = Modifier.size(10.dp))
                     Button(onClick = {}, colors = ButtonDefaults.buttonColors(
                         containerColor = Color.Yellow,
