@@ -33,17 +33,24 @@ import com.example.movil23492.R
 
 fun ProductPreview(){
     val computadora= ProductModel(imagen=R.drawable.sanic, nombre = "Sonic", calif = 0.5f, precio = 15022, entrega = "domingo")
-    ProductView(computadora)
+    ProductView(computadora){
+
+    }
 }
 
 @Composable
-fun ProductView( product: ProductModel){
-    //var imagen : Int= R.drawable.sanic
-    //var nombreProducto: String="sonic"
-    //var calificacion: Float=0.5f
-    //var precio: Int= 14500
-    //var entrega: String="sabado"
-    var agregar by remember{ mutableStateOf(false) }
+fun ProductView(product: ProductModel,selected:()->Unit){
+    var agregado by remember{ mutableStateOf(false) }
+    var resultado by remember{mutableStateOf(" ")}
+
+    fun addToCart(){
+        agregado = !agregado
+        if (agregado){
+            resultado = "Agregaste ${product.nombre} al carrito"
+        }else{
+            resultado= " "
+        }
+    }
 
     Card(modifier = Modifier.fillMaxWidth().padding(10.dp), colors = CardDefaults.cardColors(containerColor = Color.White)) {
         Column(modifier = Modifier.fillMaxWidth()) {
@@ -59,7 +66,8 @@ fun ProductView( product: ProductModel){
                     Text(text="$ ${product.precio}", fontSize = 14.sp, fontWeight = FontWeight.Bold)
                     Text("Llega el ${product.entrega}")
                     Spacer(modifier = Modifier.size(10.dp))
-                    Button(onClick = {}, colors = ButtonDefaults.buttonColors(
+                    Button(onClick = {addToCart()
+                                     selected()}, colors = ButtonDefaults.buttonColors(
                         containerColor = Color.Yellow,
                         contentColor = Color.Black)) {Text("Agregar al carrito")
                     }
