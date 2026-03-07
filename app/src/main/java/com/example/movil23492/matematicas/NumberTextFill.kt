@@ -15,17 +15,28 @@ import androidx.compose.ui.Modifier
 
 @Composable
 
-fun NumberTextFill(modificador: Modifier,fill:()-> Unit){
+fun NumberTextFill(modificador: Modifier,fill:(String)-> Unit){
     var number by remember() {
         mutableStateOf("")
     }
-
     Column(modifier= Modifier.fillMaxWidth()) {
         Text("Ingresa un numero")
         TextField(value= number, onValueChange = { TextoEscrito ->
             if (TextoEscrito.toIntOrNull() != null){
                 number = TextoEscrito.toInt().toString()
+                fill(number)
             }})
     }
 }
 
+@Preview
+@Composable
+fun NumberTextFillPreview ()
+{ var texto by remember { mutableStateOf("") }
+    Column() {
+        Text(texto)
+        NumberTextFill(Modifier.fillMaxWidth()) {
+            texto=it
+        }
+    }
+}
