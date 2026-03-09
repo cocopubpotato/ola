@@ -21,10 +21,8 @@ object Home
 @Serializable
 object Report
 
-
 @Preview(showBackground = true)
 @Composable
-
 fun NavManager(){
     val navController= rememberNavController()
     NavHost(navController, startDestination = Home){
@@ -32,22 +30,7 @@ fun NavManager(){
             HomeView(navegante = navController)
         }
         composable<Report>{
-            Text("Reporte")
-        }
-    }
-}
-
-@Composable
-fun HomeView(navegante: NavHostController){
-    Column(modifier= Modifier.fillMaxSize(),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
-        ) {
-        Text("Bienvenido")
-        Button(onClick = {
-            navegante.navigate(route = Report)
-        }) {
-            Text("Comenzar")
+            ReportView(navegante = navController)
         }
     }
 }
