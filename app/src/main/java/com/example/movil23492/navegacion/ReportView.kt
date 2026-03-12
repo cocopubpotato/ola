@@ -10,15 +10,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 
 @Composable
 fun ReportView(navegante: NavHostController){
-    val NombreSec by remember {mutableStateOf("") }
-    val NumdeSeccion by remember {mutableStateOf("") }
-    val NombreEncargado by remember {mutableStateOf("") }
+    var NombreSec by remember {mutableStateOf("NombreSec") }
+    var NumdeSeccion by remember {mutableStateOf("NumdeSeccion") }
+    var NombreEncargado by remember {mutableStateOf("NombreEncargado") }
 
     Column(modifier= Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -30,9 +31,11 @@ fun ReportView(navegante: NavHostController){
         }) {
             Text("Regresar")
         }
-        TextField(value = NombreSec,onValueChange = {""}, label= {Text(text="Nombre de la seccion")})
-        TextField(value=NumdeSeccion, onValueChange = {""}, label= {Text(text="Numero de la seccion")})
-        TextField(value=NombreEncargado, onValueChange = {""}, label= {Text(text="Nombre de encargado")})
+        TextField(value =NombreSec,onValueChange = {NombreSec=it}, label= {Text(text="Nombre de la seccion")})
+        TextField(value=NumdeSeccion, onValueChange = {NumdeSeccion=it}, label= {Text(text="Numero de la seccion")})
+        TextField(value=NombreEncargado, onValueChange = {NombreEncargado = it}, label= {Text(text="Nombre de encargado")})
+        Button(onClick = {
+            navegante.navigate(ReportModel(NombreSec = NombreSec, NumdeSeccion = NumdeSeccion.toInt(), NombreEncargado = NombreEncargado))
+        }) {Text("Enviar datos") }
     }
-
 }
