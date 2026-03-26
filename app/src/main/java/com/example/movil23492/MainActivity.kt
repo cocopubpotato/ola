@@ -11,6 +11,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.movil23492.corrutinas.StudentsViewModel
+import com.example.movil23492.corrutinas.Winnerview
 import com.example.movil23492.lists.ListView
 import com.example.movil23492.navegacion.NavManager
 import com.example.movil23492.ui.theme.Movil23492Theme
@@ -22,12 +24,12 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             Movil23492Theme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    /*Greeting(
+                Scaffold(modifier = Modifier.fillMaxSize()) {
+                    innerPadding ->
+                    Greeting(
                         name = "Android",
                         modifier = Modifier.padding(innerPadding)
-                    )*/
-                    NavManager()
+                    )
                 }
             }
         }
