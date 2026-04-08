@@ -41,7 +41,8 @@ fun ListView(){
         ) {
             item { Text("hola") }
             items(productVM.getProducts()){ producto ->
-                ProductView(producto, selected={
+                ProductView(
+                    producto, selected={
                     Log.d("EVENTO","provando el evento del producto..")
                 })
             }
