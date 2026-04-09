@@ -6,4 +6,6 @@ import retrofit2.http.GET
 interface Apiinterface {
     @GET("breeds/image/random")
     suspend fun  imagenAleatoria(): Response<ImagenRandom>
+
+
 }
