@@ -10,9 +10,6 @@ import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
-import kotlin.text.set
-
-
 class Preferencias (private val contexto: Context){
     companion object{
         val Context.dataStore: DataStore<Preferences>

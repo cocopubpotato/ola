@@ -26,10 +26,8 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             Movil23492Theme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    val dogViewModel = DogViewModel()
-                    DogView(dogViewModel)
-                }
+                val dogViewModel = DogViewModel()
+                DogView(dogViewModel)
             }
         }
     }

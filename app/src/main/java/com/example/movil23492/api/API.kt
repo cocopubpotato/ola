@@ -21,4 +21,14 @@ class API {
         Log.d("API_PRUEBA","message es"+response.body()?.message)
         return msg
     }
+    suspend fun getListImages(raza: String):List<String>{
+        val response= service.listaImagenesDePerrosPorRaza(raza)
+        if(response.body()?.status.equals("success")){
+        if (response.body()?.message !=null)
+            for (url in response.body()?.message!!){
+                Log.d("INFORMACION","url actual es $url")
+            }
+            return response.body()?.message?: emptyList()
+        }else{return emptyList()}
+    }
 }
